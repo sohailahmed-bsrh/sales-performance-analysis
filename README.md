@@ -1,119 +1,113 @@
-# Retail Sales Performance and Revenue Analytics
+# Sales Performance & Revenue Intelligence Analytics Engine
 
-> Quantitative exploratory analysis framework investigating revenue seasonality, SKU margins, and regional sales.
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github)](https://github.com/sohailahmed-bsrh/sales-performance-analysis)
-[![Live Showcase](https://img.shields.io/badge/Live-Showcase-0A66C2?style=flat-square&logo=googlechrome)](https://sohail.devsil.com/projects.html)
-[![Author](https://img.shields.io/badge/Author-Sohail%20Ahmed-20BEFF?style=flat-square)](https://sohail.devsil.com)
-
----
-
-## Overview
-
-Retail organizations generate massive transactional datasets but frequently lack structured analytical insights into product profitability and geographic trends.
-
-This project provides an end-to-end, reproducible implementation engineered to solve this challenge through verified data transformations, reliable algorithms, and production-ready architecture.
+<p align="center">
+  <a href="https://sohail.devsil.com"><strong>Portfolio</strong></a> | 
+  <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
+  <a href="https://github.com/sohailahmed-bsrh/sales-performance-analysis"><strong>Source Repository</strong></a>
+</p>
 
 ---
 
-## Key Features
+## Executive Summary & Problem Statement
 
-- Transaction record cleaning, date-time parsing, and currency formatting
-- Aggregation metrics tracking Gross Merchandise Value (GMV), Average Order Value (AOV), and customer repeat rates
-- Seasonal purchasing pattern identification across fiscal quarters
-- Regional performance breakdowns guiding inventory allocation
+Modern enterprise sales operations generate massive transactional data streams across geographical regions, product categories, and sales channels. Without structured statistical analysis and cohort segmentation, leadership teams operate on surface-level averages, masking underperforming regions, margin compression, and customer churn.
+
+This repository provides an enterprise-grade **Sales Performance Analytics and Revenue Intelligence Suite**. Applying statistical hypothesis testing, RFM (Recency, Frequency, Monetary) customer segmentation, and cohort lifetime value modeling, it extracts actionable drivers of revenue growth and profitability.
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/sohailahmed-bsrh/myportfolio/main/assets/images/thumbnail/sales-data-analysis.jpeg" width="650" alt="Sales Performance Analysis Engine"/>
+  <p><em>Enterprise revenue analytics, multi-channel cohort modeling, and RFM customer value segmentation.</em></p>
+</div>
 
 ---
 
-## System Architecture
+## Real-World Industry Applications
 
-```mermaid
-flowchart LR
-    Transactions[Raw Transaction CSV] --> Parse[Date Parsing & Outlier Cleaning]
-    Parse --> Aggregate[Sales Volume & Profit Aggregations]
-    Aggregate --> Analysis[Time-Series & Regional Margin Evaluation]
-    Analysis --> Visuals[Revenue Curves & Profit Matrix Visualizations]
+- **Executive Revenue Forecasting**: Tracks Monthly Recurring Revenue (MRR), Annual Recurring Revenue (ARR), and Year-over-Year (YoY) trajectory.
+- **RFM Customer Segmentation**: Categorizes customer bases into Champions, Potential Loyalists, At-Risk, and Dormant tiers.
+- **Product Portfolio Rationalization**: Uncovers profit margin distributions and isolates high-volume, low-margin margin-diluting SKUs.
+- **Regional Sales Territory Planning**: Optimizes sales quotas and commission incentives by benchmarking territory conversion rates.
+
+---
+
+## Technical Architecture & Engineering Walkthrough
+
+```
+                      [Multi-Year Transactional Sales Ledger]
+                                         │
+                                         ▼
+                     [Data Integrity & Normalization Pipeline]
+                  (Datetime Indexing, Refund Deduplication, Currency)
+                                         │
+         ┌───────────────────────────────┼───────────────────────────────┐
+         ▼                               ▼                               ▼
+[Cohort Retention Matrix]      [RFM Segmentation Engine]       [Pareto Profitability]
+(Month-by-Month Decay)         (Quantile Scoring Tiers)        (80/20 SKU Analysis)
+         │                               │                               │
+         └───────────────────────────────┼───────────────────────────────┘
+                                         │
+                                         ▼
+                     [Interactive Executive Analytics Reports]
 ```
 
----
+### Step 1: Ledger Ingestion & Data Sanitization
+Cleans raw transaction logs (`notebooks/sales_dataset_analysis.ipynb`), resolving invoice duplicates, handling returns/cancellations, parsing international date formats, and computing net realized revenue.
 
-## Technology Stack
+### Step 2: Temporal Decomposition & Seasonality Analysis
+Decomposes revenue streams into trend, seasonal, and cyclical variations to isolate true underlying growth from quarterly promotions and holiday spikes.
 
-| Technology | Version / Spec | Role in Architecture |
-| :--- | :--- | :--- |
-| **Python** | `3.10+` | Analytical scripts and dataframe computation |
-| **Pandas & NumPy** | `2.0+` | Multi-index grouping and numerical summaries |
-| **Matplotlib & Seaborn** | `3.7+` | Statistical plots and distribution curves |
+### Step 3: RFM Value Segmentation
+Calculates Recency (days since last purchase), Frequency (total transaction count), and Monetary value (total spend) per customer. Assigns quantile scores $(1-5)$ to establish actionable behavioral customer segments.
 
----
+### Step 4: Cohort Retention & Lifetime Value Analysis
+Groups customers into acquisition cohorts to monitor month-over-month retention decay curves and calculate average Customer Lifetime Value (CLV).
 
-## Repository Structure
-
-```text
-sales-performance-analysis/
-|-- notebooks/
-|   `-- sales_dataset_analysis.ipynb
-|-- data/
-|-- .gitignore
-|-- requirements.txt
-`-- README.md
-```
+### Step 5: Pareto Product Optimization
+Applies the 80/20 Pareto principle to SKU catalogs, categorizing products into high-impact revenue drivers vs inventory cost burdens.
 
 ---
 
-## Installation and Execution
+## Technology Stack & Implementation Specifications
 
-### Prerequisites
-- Python 3.10 or higher
-- Git version control
-- Virtual environment manager (`venv`)
+| Component | Technology | Version | Architectural Function |
+| :--- | :--- | :--- | :--- |
+| **Analytics Engine** | Python / Pandas | 2.x | High-performance multi-index transactional aggregation |
+| **Numerical Processing** | NumPy / SciPy | Latest | Statistical distribution testing and quantile scoring |
+| **Data Visualization** | Seaborn / Matplotlib | 3.8+ | Heatmaps, cohort retention matrices, pareto charts |
+| **Statistical Modeling** | Statsmodels | 0.14+ | Time-series trend and seasonal regression modeling |
 
-### Setup Instructions
-1. Clone the repository:
+---
+
+## Installation & Execution Guide
+
 ```bash
 git clone https://github.com/sohailahmed-bsrh/sales-performance-analysis.git
 cd sales-performance-analysis
-```
-
-2. Configure environment and dependencies:
-```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Windows: venv\Scriptsctivate | Unix: source venv/bin/activate
 pip install -r requirements.txt
 jupyter notebook notebooks/sales_dataset_analysis.ipynb
 ```
 
 ---
 
-## Interface and Verification
-The system produces verifiable execution logs, prediction matrices, or interactive browser interfaces depending on the target mode. Verify operation by executing the commands specified above or inspecting the demonstration notebooks.
-
----
-
-## Author and Contact
-Developed by **Sohail Ahmed** — Full Stack AI Engineer & Machine Learning Specialist.
-- **Portfolio:** [sohail.devsil.com](https://sohail.devsil.com)
-- **GitHub:** [@sohailahmed-bsrh](https://github.com/sohailahmed-bsrh)
-- **Email:** [sohail.bsrh@gmail.com](mailto:sohail.bsrh@gmail.com)
-
----
-
 ## Author & Contact Information
 
-<table width="100%" align="center">
+<table width="100%">
   <tr>
-    <td align="center" style="padding: 20px;">
+    <td width="150" align="center" valign="middle">
+      <img src="https://avatars.githubusercontent.com/u/231165170?v=4" width="120" style="border-radius: 50%;" alt="Sohail Ahmed"/>
+    </td>
+    <td>
       <h3>Sohail Ahmed</h3>
-      <p><strong>Full-Stack Artificial Intelligence & Computer Vision Engineer</strong></p>
+      <p><strong>Senior Software Engineer & AI Systems Architect</strong></p>
+      <p>Specializing in Full-Stack AI Application Development, Computer Vision, Deep Learning Pipelines, and Scalable Automation Architectures.</p>
       <p>
-        <a href="https://sohail.devsil.com"><img src="https://img.shields.io/badge/Live_Portfolio-sohail.devsil.com-0052FF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio"/></a>
-        <a href="https://github.com/sohailahmed-bsrh"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
-        <a href="https://linkedin.com/in/sohail-ahmed-dev"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-        <a href="mailto:sohail.bsrh@gmail.com"><img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+        <a href="https://sohail.devsil.com"><strong>Portfolio Website</strong></a> | 
+        <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
+        <a href="https://www.linkedin.com/in/sohail-ahmed-546314316/"><strong>LinkedIn</strong></a> | 
+        <a href="mailto:se906403@gmail.com"><strong>Email Contact</strong></a>
       </p>
-      <p><em>Available for technical roles in Artificial Intelligence, Computer Vision, and Full-Stack Engineering.</em></p>
-      <hr style="border: 0; height: 1px; background: #30363d; margin: 15px 0;">
-      <small>Distributed under the MIT License.</small>
     </td>
   </tr>
 </table>
