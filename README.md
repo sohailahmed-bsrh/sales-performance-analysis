@@ -12,7 +12,7 @@
 
 Retail organizations generate massive transactional datasets but frequently lack structured analytical insights into product profitability and geographic trends.
 
-This project provides an end-to-end, reproducible implementation engineered to solve this challenge through verified data transformations, robust algorithms, and production-ready architecture.
+This project provides an end-to-end, reproducible implementation engineered to solve this challenge through verified data transformations, reliable algorithms, and production-ready architecture.
 
 ---
 
